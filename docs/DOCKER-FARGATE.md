@@ -94,7 +94,42 @@ Example container definition (JSON fragment):
 
 With a volume named `efs` attached to your EFS file system. The task’s **entrypoint** is `node src/index.js`; **command** is overridden per run (e.g. `process-local --gpu --input-paths ...`).
 
-## 5. Launch one Fargate task per package
+## 5. Run the full combination flow as one Fargate task
+
+To run **download from S3 + run all combination commands** in a **single** Fargate task (same as `npm run run-combination-commands` locally), override the container so it runs the combination script instead of `src/index.js`:
+
+- **Entrypoint:** `node`
+- **Command:** `scripts/run-combination-commands.js` (optionally add `docs/combination-commands.json` and `docs/combination-commands-results.txt`)
+
+**Docker (for local test):**
+```bash
+docker run --rm -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_REGION \
+  -v /path/to/efs:/opt/live-streams \
+  --entrypoint node \
+  package-creation-poc:latest \
+  scripts/run-combination-commands.js
+```
+
+**AWS CLI (Fargate):** Override the container in the task definition or at run time:
+
+```bash
+aws ecs run-task \
+  --cluster YOUR_CLUSTER \
+  --task-definition YOUR_TASK_DEF \
+  --launch-type FARGATE \
+  --network-configuration "awsvpcConfiguration={subnets=[subnet-xxx],assignPublicIp=ENABLED}" \
+  --overrides '{
+    "containerOverrides": [{
+      "name": "app",
+      "entryPoint": ["node"],
+      "command": ["scripts/run-combination-commands.js"]
+    }]
+  }'
+```
+
+Replace `app` with your container name. The task must have EFS mounted at `/opt/live-streams` (so the script can write downloads and process-local can read them) and an IAM role that allows S3 read/write.
+
+## 6. Launch one Fargate task per package
 
 From your machine (or a runner with AWS credentials and the app code):
 
@@ -112,7 +147,7 @@ From your machine (or a runner with AWS credentials and the app code):
 
 Each combination in `combination-commands.json` is run as a separate Fargate task with the same image and EFS mount; the only difference is the overridden command (`node src/index.js process-local ...`).
 
-## 6. GPU (optional)
+## 7. GPU (optional)
 
 This image is **CPU-only** (Alpine + standard FFmpeg). For **h264_nvenc** on GPU instances:
 

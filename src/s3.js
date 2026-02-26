@@ -2,7 +2,7 @@
  * S3 download (input videos) and upload (stitched output) using AWS SDK v3.
  */
 
-import { S3Client, GetObjectCommand, PutObjectCommand } from '@aws-sdk/client-s3';
+import { S3Client, GetObjectCommand, PutObjectCommand, ListObjectsV2Command } from '@aws-sdk/client-s3';
 import { createWriteStream } from 'fs';
 import { mkdir } from 'fs/promises';
 import { pipeline } from 'stream/promises';
@@ -44,6 +44,52 @@ export async function downloadObjects(bucket, keys, localDir) {
     paths.push(localPath);
   }
   return paths;
+}
+
+/**
+ * List all object keys under an S3 prefix (handles pagination).
+ * @param {string} bucket
+ * @param {string} prefix - e.g. "Playground/PackagePOCasset/"
+ * @returns {Promise<string[]>} Keys (not including prefix in the key; full key is returned)
+ */
+export async function listPrefix(bucket, prefix) {
+  const keys = [];
+  let continuationToken;
+  do {
+    const cmd = new ListObjectsV2Command({
+      Bucket: bucket,
+      Prefix: prefix,
+      ContinuationToken: continuationToken,
+    });
+    const res = await s3.send(cmd);
+    for (const obj of res.Contents || []) {
+      if (obj.Key) keys.push(obj.Key);
+    }
+    continuationToken = res.IsTruncated ? res.NextContinuationToken : undefined;
+  } while (continuationToken);
+  return keys;
+}
+
+/**
+ * Download all objects under an S3 prefix to a local directory, preserving relative paths.
+ * e.g. prefix "Playground/PackagePOCasset/", key "Playground/PackagePOCasset/gfx/1.png" -> localDir/gfx/1.png
+ * @param {string} bucket
+ * @param {string} prefix - S3 prefix (e.g. "Playground/PackagePOCasset/")
+ * @param {string} localDir - Base directory to write files into
+ * @returns {Promise<{ downloaded: number, paths: string[] }>}
+ */
+export async function downloadPrefix(bucket, prefix, localDir) {
+  const keys = await listPrefix(bucket, prefix);
+  const prefixNorm = prefix.endsWith('/') ? prefix : prefix + '/';
+  const paths = [];
+  for (const key of keys) {
+    const suffix = key.startsWith(prefixNorm) ? key.slice(prefixNorm.length) : key.replace(prefixNorm, '');
+    if (!suffix) continue;
+    const localPath = join(localDir, suffix);
+    await downloadObject(bucket, key, localPath);
+    paths.push(localPath);
+  }
+  return { downloaded: paths.length, paths };
 }
 
 /**

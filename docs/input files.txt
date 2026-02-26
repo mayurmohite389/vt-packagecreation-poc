@@ -1,4 +1,5 @@
 input location : /opt/live-streams/content/poctest/
+input S3 (download all to input location) : s3://si-davs-playgroundvideos/Playground/PackagePOCasset/
 input file : 3508834.mp4
 crop file : 3508834_crop.json
 graphics manifest file : 3508834_gfx.json

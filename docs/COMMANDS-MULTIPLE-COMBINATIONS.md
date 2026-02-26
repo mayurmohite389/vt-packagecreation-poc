@@ -36,6 +36,18 @@ At the end you have one file with every command and its output stats together.
 
 ---
 
+## Populate input location from S3
+
+To download all POC assets (input file, crop JSON, gfx manifest, plates, and the **gfx/** folder of PNG images) from S3 to `/opt/live-streams/content/poctest/`:
+
+```bash
+npm run download-poc-assets
+```
+
+Default source: `s3://si-davs-playgroundvideos/Playground/PackagePOCasset/` (entire prefix, including `gfx/`). Override with `--dest`, `--bucket`, or `--prefix`, or env `POC_ASSETS_DEST`, `POC_ASSETS_S3_BUCKET`, `POC_ASSETS_S3_PREFIX`.
+
+---
+
 ## Input and output paths (from `input files.txt`)
 
 | Item | Path / value |
