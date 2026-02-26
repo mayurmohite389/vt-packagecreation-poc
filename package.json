@@ -1,0 +1,24 @@
+{
+  "name": "package-creation-poc",
+  "version": "1.0.0",
+  "description": "PoC for package engine: video stitching from S3 with TAT and Fargate measurement",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "process": "node src/index.js process",
+    "process-local": "node src/index.js process-local",
+    "measure-fargate": "node src/index.js measure-fargate",
+    "test": "node src/index.js process --dry-run",
+    "publish": "node scripts/prepare-publish.js",
+    "generate-combination-commands": "node scripts/generate-combination-commands.js",
+    "run-combination-commands": "node scripts/run-combination-commands.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@aws-sdk/client-ecs": "^3.893.0",
+    "@aws-sdk/client-s3": "^3.893.0"
+  }
+}

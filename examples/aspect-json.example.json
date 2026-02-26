@@ -1,0 +1,5 @@
+[
+  { "frame": 1, "xMin": 0, "xMax": 1080, "time": 0 },
+  { "frame": 30, "xMin": 50, "xMax": 1130, "time": 1 },
+  { "frame": 60, "xMin": 100, "xMax": 1180, "time": 2 }
+]

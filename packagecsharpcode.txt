@@ -1,0 +1,383 @@
+"PackageNoFadeCommandHQ": "-y -f concat -safe 0 -i \"[input]\" [videobitrate] -map 0:v:0 -map 0:a:0 -c:a aac -b:a 192k -ar 48000 -ac 2 -c:v libx264 -profile:v high -level 4.1 -pix_fmt yuv420p -preset faster -tune film -map_metadata 0 -movflags +faststart \"[output]\" ",
+"PackageFadeCommandHQ": "-y [input] -filter_complex \"[filter]\" [map]  -threads [threads] -c:a aac -b:a 192k -ar 48000 -ac 2 -c:v libx264 -profile:v high -level 4.1 -pix_fmt yuv420p -preset faster -tune film -map_metadata 0 -movflags +faststart -y \"[output]\" "
+
+if (allowXFade)
+{
+    item.package_resolution = (item.aspect_ratio == "9_16") ? "608:1080" : item.package_resolution;
+    isGenerated = _ffmpeg.GeneratePackageHQ(_config.PackageFadeCommandHQ, videos, VideoOutputPath, _config.VideoCountForPackageBatch, tempPath,item.package_resolution, (plates != null && plates.Count > 0) ? plates : null);
+}
+else
+{
+ isGenerated = await _ffmpeg.GeneratePackageWithoutFadeHQ(_config.PackageNoFadeCommandHQ, videos, VideoOutputPath, tempPath, item.package_id.ToString(), VideoBitrate, (plates != null && plates.Count > 0) ? plates : null, 12);
+}
+
+
+
+
+public bool GeneratePackageHQ(string PackageFadeCommandHQ, List<XfadeVideo> liVideo, string FinalOutputFile, int VideoCountForPackageBatch, string TempPackagePath, string package_resolution = "", List<XfadeVideo> liPlatesVideo = null, string InputVideoBak = null, int Threads = 0)
+{
+    bool IsFailure = false;
+    int ExtIndex = FinalOutputFile.LastIndexOf('.');
+    string Ext = "mp4";
+
+    if (ExtIndex != -1)
+    {
+        Ext = FinalOutputFile.Substring(ExtIndex + 1);
+    }
+
+    List<XfadeVideo> liFinalVideo = new List<XfadeVideo>();
+
+    int TakeCount = VideoCountForPackageBatch;
+    var BatchCount = (int)Math.Ceiling((double)liVideo.Count / TakeCount);
+
+    // Check if the last batch would have only 1 video, and if so, merge it with the previous batch
+    int remainingVideos = liVideo.Count % TakeCount;
+    bool shouldMergeLastSingleVideo = (remainingVideos == 1 && BatchCount > 1);
+
+    if (shouldMergeLastSingleVideo)
+    {
+        BatchCount = BatchCount - 1;
+        Logger.LogInformation("Video Count:" + liVideo.Count + ", BatchCount:" + BatchCount + " (last single video merged into previous batch)");
+    }
+    else
+    {
+        Logger.LogInformation("Video Count:" + liVideo.Count + ", BatchCount:" + BatchCount);
+    }
+
+    try
+    {
+        //TempPackagePath = TempPackagePath + "/Batch";
+        Directory.CreateDirectory(TempPackagePath);
+
+        for (int i = 1, j = 1; i <= BatchCount; i++, j++)
+        {
+            var SkipCount = Convert.ToInt32((i - 1) * TakeCount);
+            int currentBatchSize = TakeCount;
+
+            // If this is the last batch and we merged the single video, include it in this batch
+            if (i == BatchCount && shouldMergeLastSingleVideo)
+            {
+                currentBatchSize = TakeCount + 1;
+            }
+
+            List<XfadeVideo> liTempVideo = liVideo.Skip(SkipCount).Take(currentBatchSize).ToList();
+
+            Logger.LogInformation("Batch " + j + " started");
+
+            if (liTempVideo.Count > 1)
+            {
+                string TempFile = TempPackagePath + "/BatchVideo_" + j + "." + Ext;
+                FFMpegOutput o = XfadeJoin(liTempVideo, TempFile, package_resolution, PackageFadeCommandHQ);
+
+                //Logger.LogInformation("Batch " + j + " XfadeJoin Output :\n" + o.OutputMessage);
+
+                if (!File.Exists(TempFile))
+                {
+                    Logger.LogInformation(TempFile + " failed to create");
+                    IsFailure = true;
+                    break;
+                }
+                Logger.LogInformation(TempFile + " has been created");
+
+                XfadeVideo vid = liTempVideo.Last();
+                vid.VideoName = TempFile;
+
+                FFMpegOutput det = GetVideoDetails(TempFile);
+                //Logger.LogInformation(det.OutputMessage);
+
+                Logger.LogInformation("Deserializing details for " + TempFile);
+
+                VideoDetails vd = JsonConvert.DeserializeObject<VideoDetails>(det.OutputMessage);
+
+                Logger.LogInformation("Deserializing done for " + TempFile);
+
+                vid.VideoDuration = float.Parse(vd.format.duration, CultureInfo.InvariantCulture.NumberFormat);
+
+                Logger.LogInformation("Video duration from ffprobe:" + vd.format.duration);
+                Logger.LogInformation("Video duration sending to XfadeJoin:" + vid.VideoDuration);
+
+                liFinalVideo.Add(vid);
+            }
+            else if (liTempVideo.Count == 1)
+            {
+                // When batch has only 1 clip, we still need to get its duration for proper offset calculation in final join
+                XfadeVideo vid = liTempVideo.Last();
+
+                FFMpegOutput det = GetVideoDetails(vid.VideoName);
+                VideoDetails? vd = JsonConvert.DeserializeObject<VideoDetails>(det.OutputMessage);
+                if (vd != null && vd.format != null && !string.IsNullOrEmpty(vd.format.duration))
+                {
+                    vid.VideoDuration = float.Parse(vd.format.duration, CultureInfo.InvariantCulture.NumberFormat);
+
+                    Logger.LogInformation("Video duration from ffprobe for single clip:" + vd.format.duration);
+                    Logger.LogInformation("Video duration sending to XfadeJoin:" + vid.VideoDuration);
+                }
+
+                liFinalVideo.Add(vid);
+            }
+            Logger.LogInformation("Batch " + j + " finished");
+        }
+
+        if (liFinalVideo.Count > 1)
+        {
+            Logger.LogInformation(liFinalVideo.Count + " videos are getting joined");
+
+            FFMpegOutput o = XfadeJoin(liFinalVideo, FinalOutputFile, string.Empty, PackageFadeCommandHQ);
+
+            //Logger.LogInformation("Final XfadeJoin Output :\n" + o.OutputMessage);
+
+            if (!File.Exists(FinalOutputFile))
+            {
+                Logger.LogInformation(FinalOutputFile + " failed to create");
+                IsFailure = true;
+            }
+            else Logger.LogInformation(FinalOutputFile + " has been created");
+        }
+        else if (liFinalVideo.Count == 1)
+        {
+            Logger.LogInformation("FinalOutputFile: " + FinalOutputFile);
+            CopyFile(liFinalVideo[0].VideoName, FinalOutputFile);
+        }
+        else
+        {
+            Logger.LogInformation("Video count <= 1. Cannot proceed.");
+            IsFailure = true;
+        }
+    }
+    catch (Exception ex)
+    {
+        Logger.LogInformation("Exception : " + ex.ToString());
+        IsFailure = true;
+    }
+
+    if (!IsFailure && liPlatesVideo != null && liPlatesVideo.Count > 0)
+    {
+        string StartPlateVideo = string.Empty, EndPlateVideo = string.Empty;
+
+        var Splate = liPlatesVideo.Where(a => a.ClipType.Equals("start_plate", StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+        if (Splate != null)
+        {
+            StartPlateVideo = Splate.VideoName;
+        }
+        var EPlate = liPlatesVideo.Where(a => a.ClipType.Equals("end_plate", StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+        if (EPlate != null)
+        {
+            EndPlateVideo = EPlate.VideoName;
+        }
+
+        File.Copy(FinalOutputFile, InputVideoBak, true);
+
+        if (!(String.IsNullOrEmpty(StartPlateVideo) && String.IsNullOrEmpty(EndPlateVideo)))
+        {
+            bool flag = ApplyStartEndPlateVideoToSourceVideo(InputVideoBak, StartPlateVideo, EndPlateVideo, FinalOutputFile);
+
+            IsFailure = !flag;
+        }
+    }
+
+    return !IsFailure;
+}
+
+
+
+public async Task<bool> GeneratePackageWithoutFadeHQ(string PackageNoFadeCommandHQ, List<XfadeVideo> liVideo, string FinalOutputFile, string TempPackagePath, string? PackageId, string VideoBitrate = "", List<XfadeVideo> liPlatesVideo = null, int Threads = 0)
+{
+    bool IsSuccess = false;
+    string inputs = String.Empty;
+    try
+    {
+        if (liVideo.Count == 1)
+        {
+            Logger.LogInformation("Single video:" + liVideo.First().VideoName);
+
+            File.Copy(liVideo.First().VideoName, FinalOutputFile);
+
+            Logger.LogInformation("File Copied to final output");
+            return true;
+        }
+        else
+        {
+            foreach (var item in liVideo)
+            {
+                inputs += " file '" + item.VideoName + "'\n";
+            }
+            if (liPlatesVideo != null && liPlatesVideo.Count > 0)
+            {
+                var Splate = liPlatesVideo.Where(a => a.ClipType.Equals("start_plate", StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+                if (Splate != null && !String.IsNullOrEmpty(Splate.VideoName))
+                {
+                    inputs = " file '" + Splate.VideoName + "'\n" + inputs;
+                }
+                var EPlate = liPlatesVideo.Where(a => a.ClipType.Equals("end_plate", StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
+                if (EPlate != null && !String.IsNullOrEmpty(Splate.VideoName))
+                {
+                    inputs = inputs + "\n" + " file '" + EPlate + "'";
+                }
+            }
+
+            string InputFileWithPath = TempPackagePath + "/list.txt";
+            Logger.LogInformation(InputFileWithPath + ":" + inputs);
+
+            await File.WriteAllTextAsync(InputFileWithPath, inputs);
+
+            string command = PackageNoFadeCommandHQ
+                         .Replace("[input]", InputFileWithPath)
+                         .Replace("[output]", FinalOutputFile)
+                         .Replace("[videobitrate]", VideoBitrate);
+
+            Logger.LogInformation("ConcatVideo: " + command);
+            CustomLog.CustomLogError("FFMPEG UTILITY", "GeneratePackageWithoutFade", "Concat Command" + command, "NoXfade" + PackageId);
+
+            Logger.LogInformation("Concat Join: " + command);
+            FFMpegOutput output = RunProcess(command, 1);
+            if (File.Exists(FinalOutputFile))
+            {
+                CustomLog.CustomLogError("FFMPEG UTILITY", "GeneratePackageWithoutFade", "Concat Command" + output.Command, "NoXfade" + PackageId);
+                IsSuccess = true;
+            }
+        }
+    }
+    catch (Exception ex)
+    {
+        CustomLog.CustomLogError("FFMPEG UTILITY", "GeneratePackageWithoutFade", "Exception : " + ex.ToString(), "NoXfade" + PackageId);
+        Logger.LogInformation("GeneratePackageWithoutFade Exception : " + ex.ToString());
+    }
+
+    return IsSuccess;
+}
+
+
+
+
+public FFMpegOutput XfadeJoin(List<XfadeVideo> liVideo, string OutputVideo, string package_resolution, string PackageFadeCommandHQ = "", int Threads = 0)
+{
+    // Guard: XfadeJoin requires at least 2 videos to create a fade transition
+    if (liVideo == null)
+    {
+        Logger.LogInformation("XfadeJoin called with null video list. At least 2 videos are required for fade transitions.");
+        return new FFMpegOutput
+        {
+            IsSuccess = false,
+            ExceptionMessage = "XfadeJoin requires at least 2 videos, but received null",
+            Command = "No command - null video list"
+        };
+    }
+
+    if (liVideo.Count < 2)
+    {
+        Logger.LogInformation($"XfadeJoin called with {liVideo.Count} video(s). At least 2 videos are required for fade transitions.");
+        return new FFMpegOutput
+        {
+            IsSuccess = false,
+            ExceptionMessage = $"XfadeJoin requires at least 2 videos, but received {liVideo.Count}",
+            Command = "No command - insufficient videos"
+        };
+    }
+
+    //Resolution = "1280:720";
+    string Input = string.Empty; //= "-i " + string.Join(" -i ", liVideo.Select(a => a.VideoName + "\""));
+    string VideoFilter = string.Empty; string AudioFilter = string.Empty; string ScaleFilter = string.Empty;
+
+    int i = 0; int j = 1; float PrevOffset = 0;
+
+    foreach (var item in liVideo)
+    {
+        Input = Input + " -i \"" + item.VideoName + "\"";
+    }
+
+    if (String.IsNullOrEmpty(package_resolution))
+    {
+        foreach (XfadeVideo item in liVideo)
+        {
+            Logger.LogInformation("Video duration received to XfadeJoin:" + item.VideoDuration + " for " + item.VideoName);
+            item.Offset = item.VideoDuration + PrevOffset - item.FadeDuration;
+            PrevOffset = item.Offset;
+
+            if (i == liVideo.Count - 2)
+            {
+                if (!String.IsNullOrEmpty(item.FadeType))
+                {
+                    VideoFilter += "[" + (i == 0 ? "" : "vfade") + i + "][" + j + ":v]xfade=transition=" + item.FadeType + ":duration=" + item.FadeDuration + ":offset=" + item.Offset + ",format=yuv420p;";
+                    AudioFilter += "[" + (i == 0 ? "" : "afade") + i + "][" + j + ":a]acrossfade=d=" + item.FadeDuration;
+                    break;
+                }
+                else
+                {
+                    VideoFilter += "[" + (i == 0 ? "" : "vfade") + i + "][" + j + ":v]xfade=transition=fade" + ":duration=" + item.FadeDuration + ":offset=" + item.Offset + ",format=yuv420p;";
+                    AudioFilter += "[" + (i == 0 ? "" : "afade") + i + "][" + j + ":a]acrossfade=d=" + item.FadeDuration;
+                    break;
+                }
+            }
+            else
+            {
+                if (!String.IsNullOrEmpty(item.FadeType))
+                {
+                    VideoFilter += "[" + (i == 0 ? "" : "vfade") + i + "][" + j + ":v]xfade=transition=" + item.FadeType + ":duration=" + item.FadeDuration + ":offset=" + item.Offset + "[vfade" + j + "];";
+                    AudioFilter += "[" + (i == 0 ? "" : "afade") + i + "][" + j + ":a]acrossfade=d=" + item.FadeDuration + "[afade" + j + "];";
+                }
+                else
+                {
+                    VideoFilter += "[" + (i == 0 ? "" : "vfade") + i + "][" + j + ":v]xfade=transition=fade" + ":duration=" + item.FadeDuration + ":offset=" + item.Offset + "[vfade" + j + "];";
+                    AudioFilter += "[" + (i == 0 ? "" : "afade") + i + "][" + j + ":a]acrossfade=d=" + item.FadeDuration + "[afade" + j + "];";
+                }
+            }
+
+            i += 1;
+            j += 1;
+        }
+    }
+    else
+    {
+        //Videos with specific resolution
+        foreach (XfadeVideo item in liVideo)
+        {
+            ScaleFilter += "[" + i + ":v]scale=" + package_resolution + ",fps=25[v" + i + "];";
+
+            i += 1;
+        }
+        i = 0;
+        foreach (XfadeVideo item in liVideo)
+        {
+            Logger.LogInformation("Video duration received to XfadeJoin with specific resolution:" + item.VideoDuration);
+            item.Offset = item.VideoDuration + PrevOffset - item.FadeDuration;
+            PrevOffset = item.Offset;
+
+            if (i == liVideo.Count - 2)
+            {
+                if (!String.IsNullOrEmpty(item.FadeType))
+                    VideoFilter += "[" + ((i == 0) ? "v" : "vfade") + i + "][v" + j + "]xfade=transition=fade:duration=" + item.FadeDuration + ":offset=" + item.Offset + ",format=yuv420p[vout];";
+                else
+                    VideoFilter += "[" + ((i == 0) ? "v" : "vfade") + i + "][v" + j + "]xfade=transition=fade:duration=" + item.FadeDuration + ":offset=" + item.Offset + ",format=yuv420p[vout];";
+
+                AudioFilter += "[" + ((i == 0) ? (i + ":a]") : ("afade" + i + "]")) + "[" + j + ":a]acrossfade=d=" + item.FadeDuration + "[aout];";
+
+                break;
+            }
+            else
+            {
+                if (!String.IsNullOrEmpty(item.FadeType))
+                    VideoFilter += "[" + ((i == 0) ? "v" : "vfade") + "" + i + "][v" + j + "]xfade=transition=fade:duration=" + item.FadeDuration + ":offset=" + item.Offset + "[vfade" + j + "];";
+                else
+                    VideoFilter += "[" + ((i == 0) ? "v" : "vfade") + "" + i + "][v" + j + "]xfade=transition=fade:duration=" + item.FadeDuration + ":offset=" + item.Offset + "[vfade" + j + "];";
+
+                AudioFilter += "[" + ((i == 0) ? (i + ":a]") : ("afade" + i + "]")) + "[" + j + ":a]acrossfade=d=" + item.FadeDuration + "[afade" + j + "];";
+            }
+
+            i += 1;
+            j += 1;
+        }
+    }
+    Logger.LogInformation($"Filters ready for {OutputVideo}");
+
+    string command = (!String.IsNullOrEmpty(PackageFadeCommandHQ) ? PackageFadeCommandHQ : FFMPEG_Commands.xfade_join)
+                .Replace("[input]", Input)
+                .Replace("[filter]", ScaleFilter + VideoFilter + AudioFilter)
+                .Replace("[map]", !String.IsNullOrEmpty(ScaleFilter) ? "-map \"[vout]\" -map \"[aout]\"" : "")
+                .Replace("[output]", OutputVideo)
+                .Replace("[threads]", Threads.ToString());
+
+    Logger.LogInformation("XFadeJoin: " + command);
+    return RunProcess(command, 1);
+}
+
+

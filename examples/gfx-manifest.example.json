@@ -1,0 +1,16 @@
+[
+  {
+    "markIn": 0,
+    "markOut": 5,
+    "gfx_type": 2,
+    "imagePath": "D:/Asset/logo.png",
+    "fps": "25"
+  },
+  {
+    "markIn": 0,
+    "markOut": 5,
+    "gfx_type": 1,
+    "imagePattern": "D:/Asset/testsequence/frame_%04d.png",
+    "fps": "25"
+  }
+]

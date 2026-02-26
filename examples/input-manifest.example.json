@@ -1,0 +1,7 @@
+[
+  { "path": "start-plate.mp4", "clipType": "start_plate" },
+  { "path": "clip1.mp4", "clipType": "content", "orderId": 1 },
+  { "path": "clip2.mp4", "clipType": "content", "orderId": 2 },
+  { "path": "clip3.mp4", "clipType": "content", "orderId": 3 },
+  { "path": "end-plate.mp4", "clipType": "end_plate" }
+]

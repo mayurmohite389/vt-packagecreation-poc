@@ -1,0 +1,328 @@
+Combination commands run at 2026-02-24T19:35:05.131Z
+Commands file: /var/www/packagegenpoc/docs/combination-commands.json
+Total: 13 command(s)
+
+================================================================================
+=== horizontal_9_gfx_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --start-plate /opt/live-streams/content/poctest/start_plate16_9.mp4 --end-plate /opt/live-streams/content/poctest/end_plate16_9.mp4 --gfx-manifest /opt/live-streams/content/poctest/3508834_gfx.json --output-path /opt/live-streams/content/poctest/output/3508834_h_9_gfx_plate_gpu.mp4 --s3-output-key packagetest/3508834_h_9_gfx_plate_gpu.mp4
+
+Output:
+{
+  "tatMs": 654019,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 622567,
+    "gfxMs": 31309,
+    "uploadMs": 1522
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_h_9_gfx_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_h_9_gfx_plate_gpu.mp4"
+}
+TAT (stitch): 654019 ms | Upload to S3: 1522 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_h_9_gfx_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_h_9_gfx_plate_gpu.mp4
+
+
+Exit code: 0
+
+================================================================================
+=== horizontal_4_gfx_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --start-plate /opt/live-streams/content/poctest/start_plate16_9.mp4 --end-plate /opt/live-streams/content/poctest/end_plate16_9.mp4 --gfx-manifest /opt/live-streams/content/poctest/3508834_gfx.json --output-path /opt/live-streams/content/poctest/output/3508834_h_4_gfx_plate_gpu.mp4 --s3-output-key packagetest/3508834_h_4_gfx_plate_gpu.mp4
+
+Output:
+{
+  "tatMs": 183803,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 168787,
+    "gfxMs": 14911,
+    "uploadMs": 817
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_h_4_gfx_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_h_4_gfx_plate_gpu.mp4"
+}
+TAT (stitch): 183803 ms | Upload to S3: 817 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_h_4_gfx_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_h_4_gfx_plate_gpu.mp4
+
+
+Exit code: 0
+
+================================================================================
+=== horizontal_10_no_gfx_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --start-plate /opt/live-streams/content/poctest/start_plate16_9.mp4 --end-plate /opt/live-streams/content/poctest/end_plate16_9.mp4 --output-path /opt/live-streams/content/poctest/output/3508834_h_10_no_gfx_plate_gpu.mp4 --s3-output-key packagetest/3508834_h_10_no_gfx_plate_gpu.mp4
+
+Output:
+{
+  "tatMs": 747382,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 747232,
+    "gfxMs": 0,
+    "uploadMs": 4742
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_h_10_no_gfx_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_h_10_no_gfx_plate_gpu.mp4"
+}
+TAT (stitch): 747382 ms | Upload to S3: 4742 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_h_10_no_gfx_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_h_10_no_gfx_plate_gpu.mp4
+
+
+Exit code: 0
+
+================================================================================
+=== horizontal_10_no_gfx_no_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --output-path /opt/live-streams/content/poctest/output/3508834_h_10_no_gfx_no_plate_gpu.mp4 --s3-output-key packagetest/3508834_h_10_no_gfx_no_plate_gpu.mp4
+
+Output:
+{
+  "tatMs": 615221,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 615075,
+    "gfxMs": 0,
+    "uploadMs": 4894
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_h_10_no_gfx_no_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_h_10_no_gfx_no_plate_gpu.mp4"
+}
+TAT (stitch): 615221 ms | Upload to S3: 4894 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_h_10_no_gfx_no_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_h_10_no_gfx_no_plate_gpu.mp4
+
+
+Exit code: 0
+
+================================================================================
+=== horizontal_20_gfx_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --start-plate /opt/live-streams/content/poctest/start_plate16_9.mp4 --end-plate /opt/live-streams/content/poctest/end_plate16_9.mp4 --gfx-manifest /opt/live-streams/content/poctest/3508834_gfx.json --output-path /opt/live-streams/content/poctest/output/3508834_h_20_gfx_plate_gpu.mp4 --s3-output-key packagetest/3508834_h_20_gfx_plate_gpu.mp4
+
+Output:
+{
+  "tatMs": 2627869,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 2560358,
+    "gfxMs": 67284,
+    "uploadMs": 3050
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_h_20_gfx_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_h_20_gfx_plate_gpu.mp4"
+}
+TAT (stitch): 2627869 ms | Upload to S3: 3050 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_h_20_gfx_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_h_20_gfx_plate_gpu.mp4
+
+
+Exit code: 0
+
+================================================================================
+=== horizontal_30_gfx_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --start-plate /opt/live-streams/content/poctest/start_plate16_9.mp4 --end-plate /opt/live-streams/content/poctest/end_plate16_9.mp4 --gfx-manifest /opt/live-streams/content/poctest/3508834_gfx.json --output-path /opt/live-streams/content/poctest/output/3508834_h_30_gfx_plate_gpu.mp4 --s3-output-key packagetest/3508834_h_30_gfx_plate_gpu.mp4
+
+Output:
+{
+  "tatMs": 5530043,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 5429994,
+    "gfxMs": 99750,
+    "uploadMs": 4436
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_h_30_gfx_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_h_30_gfx_plate_gpu.mp4"
+}
+TAT (stitch): 5530043 ms | Upload to S3: 4436 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_h_30_gfx_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_h_30_gfx_plate_gpu.mp4
+
+
+Exit code: 0
+
+================================================================================
+=== horizontal_30_no_gfx_no_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --output-path /opt/live-streams/content/poctest/output/3508834_h_30_no_gfx_no_plate_gpu.mp4 --s3-output-key packagetest/3508834_h_30_no_gfx_no_plate_gpu.mp4
+
+Output:
+{
+  "tatMs": 5067863,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 5067572,
+    "gfxMs": 0,
+    "uploadMs": 12675
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_h_30_no_gfx_no_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_h_30_no_gfx_no_plate_gpu.mp4"
+}
+TAT (stitch): 5067863 ms | Upload to S3: 12675 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_h_30_no_gfx_no_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_h_30_no_gfx_no_plate_gpu.mp4
+
+
+Exit code: 0
+
+================================================================================
+=== vertical_9_gfx_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --aspect-json-paths ",/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json," --aspect-ratio 9:16 --start-plate /opt/live-streams/content/poctest/start_plate9_16.mp4 --end-plate /opt/live-streams/content/poctest/end_plate9_16.mp4 --gfx-manifest /opt/live-streams/content/poctest/3508834_gfx.json --output-path /opt/live-streams/content/poctest/output/3508834_v_9_gfx_plate_gpu.mp4 --s3-output-key packagetest/3508834_v_9_gfx_plate_gpu.mp4
+
+Output:
+{
+  "tatMs": 708149,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 637903,
+    "gfxMs": 31232,
+    "uploadMs": 1592
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_v_9_gfx_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_v_9_gfx_plate_gpu.mp4"
+}
+TAT (stitch): 708149 ms | Upload to S3: 1592 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_v_9_gfx_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_v_9_gfx_plate_gpu.mp4
+
+
+Exit code: 0
+
+================================================================================
+=== vertical_4_gfx_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --aspect-json-paths ",/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json," --aspect-ratio 9:16 --start-plate /opt/live-streams/content/poctest/start_plate9_16.mp4 --end-plate /opt/live-streams/content/poctest/end_plate9_16.mp4 --gfx-manifest /opt/live-streams/content/poctest/3508834_gfx.json --output-path /opt/live-streams/content/poctest/output/3508834_v_4_gfx_plate_gpu.mp4 --s3-output-key packagetest/3508834_v_4_gfx_plate_gpu.mp4
+
+Output:
+{
+  "tatMs": 204693,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 172146,
+    "gfxMs": 15136,
+    "uploadMs": 842
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_v_4_gfx_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_v_4_gfx_plate_gpu.mp4"
+}
+TAT (stitch): 204693 ms | Upload to S3: 842 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_v_4_gfx_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_v_4_gfx_plate_gpu.mp4
+
+
+Exit code: 0
+
+================================================================================
+=== vertical_10_no_gfx_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --aspect-json-paths ",/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json," --aspect-ratio 9:16 --start-plate /opt/live-streams/content/poctest/start_plate9_16.mp4 --end-plate /opt/live-streams/content/poctest/end_plate9_16.mp4 --output-path /opt/live-streams/content/poctest/output/3508834_v_10_no_gfx_plate_gpu.mp4 --s3-output-key packagetest/3508834_v_10_no_gfx_plate_gpu.mp4
+
+Output:
+{
+  "tatMs": 809872,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 766524,
+    "gfxMs": 0,
+    "uploadMs": 5032
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_v_10_no_gfx_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_v_10_no_gfx_plate_gpu.mp4"
+}
+TAT (stitch): 809872 ms | Upload to S3: 5032 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_v_10_no_gfx_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_v_10_no_gfx_plate_gpu.mp4
+
+
+Exit code: 0
+
+================================================================================
+=== vertical_10_no_gfx_no_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --aspect-json-paths "/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json" --aspect-ratio 9:16 --output-path /opt/live-streams/content/poctest/output/3508834_v_10_no_gfx_no_plate_gpu.mp4 --s3-output-key packagetest/3508834_v_10_no_gfx_no_plate_gpu.mp4
+
+Output:
+{
+  "tatMs": 672752,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 629411,
+    "gfxMs": 0,
+    "uploadMs": 5136
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_v_10_no_gfx_no_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_v_10_no_gfx_no_plate_gpu.mp4"
+}
+TAT (stitch): 672752 ms | Upload to S3: 5136 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_v_10_no_gfx_no_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_v_10_no_gfx_no_plate_gpu.mp4
+
+
+Exit code: 0
+
+================================================================================
+=== vertical_12_gfx_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --aspect-json-paths ",/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json," --aspect-ratio 9:16 --start-plate /opt/live-streams/content/poctest/start_plate9_16.mp4 --end-plate /opt/live-streams/content/poctest/end_plate9_16.mp4 --gfx-manifest /opt/live-streams/content/poctest/3508834_gfx.json --output-path /opt/live-streams/content/poctest/output/3508834_v_12_gfx_plate_gpu.mp4 --s3-output-key packagetest/3508834_v_12_gfx_plate_gpu.mp4
+
+Output:
+{
+  "tatMs": 1146346,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 1053344,
+    "gfxMs": 40991,
+    "uploadMs": 1961
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_v_12_gfx_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_v_12_gfx_plate_gpu.mp4"
+}
+TAT (stitch): 1146346 ms | Upload to S3: 1961 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_v_12_gfx_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_v_12_gfx_plate_gpu.mp4
+
+
+Exit code: 0
+
+================================================================================
+=== vertical_12_no_gfx_no_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --aspect-json-paths "/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json" --aspect-ratio 9:16 --output-path /opt/live-streams/content/poctest/output/3508834_v_12_no_gfx_no_plate_gpu.mp4 --s3-output-key packagetest/3508834_v_12_no_gfx_no_plate_gpu.mp4
+
+Output:
+{
+  "tatMs": 945173,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 893193,
+    "gfxMs": 0,
+    "uploadMs": 5916
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_v_12_no_gfx_no_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_v_12_no_gfx_no_plate_gpu.mp4"
+}
+TAT (stitch): 945173 ms | Upload to S3: 5916 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_v_12_no_gfx_no_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_v_12_no_gfx_no_plate_gpu.mp4
+
+
+Exit code: 0

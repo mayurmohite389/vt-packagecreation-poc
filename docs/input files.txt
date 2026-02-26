@@ -1,0 +1,11 @@
+input location : /opt/live-streams/content/poctest/
+input file : 3508834.mp4
+crop file : 3508834_crop.json
+graphics manifest file : 3508834_gfx.json
+start plate for 16:9 video : start_plate16_9.mp4
+start plate for 9:16 video : start_plate9_16.mp4
+end plate for 16:9 video : end_plate16_9.mp4
+end plate for 9:16 video : end_plate9_16.mp4
+
+output location on EFS : /opt/live-streams/content/poctest/output/
+output location on S3 : s3://si-davs-playgroundvideos/packagetest/

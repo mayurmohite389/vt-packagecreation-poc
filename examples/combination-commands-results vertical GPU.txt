@@ -1,0 +1,508 @@
+Combination commands run at 2026-02-24T18:11:02.324Z
+Commands file: /var/www/packagegenpoc/docs/combination-commands.json
+Total: 6 command(s)
+
+================================================================================
+=== vertical_9_gfx_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --aspect-json-paths ",/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json," --aspect-ratio 9:16 --start-plate /opt/live-streams/content/poctest/start_plate9_16.mp4 --end-plate /opt/live-streams/content/poctest/end_plate9_16.mp4 --gfx-manifest /opt/live-streams/content/poctest/3508834_gfx.json --output-path /opt/live-streams/content/poctest/output/3508834_v_9_gfx_plate_gpu.mp4 --s3-output-key packagetest/3508834_v_9_gfx_plate_gpu.mp4
+
+Output:
+--- Stitch input details (ffprobe) ---
+Count: 11
+
+[0] start_plate9_16.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 3.78s
+
+[1] crop_1.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[2] crop_2.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[3] crop_3.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[4] crop_4.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[5] crop_5.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[6] crop_6.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[7] crop_7.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[8] crop_8.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[9] crop_9.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[10] end_plate9_16.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 3.78s
+
+----------------------------------------
+
+{
+  "tatMs": 712292,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 642100,
+    "gfxMs": 31155,
+    "uploadMs": 1497
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_v_9_gfx_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_v_9_gfx_plate_gpu.mp4"
+}
+TAT (stitch): 712292 ms | Upload to S3: 1497 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_v_9_gfx_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_v_9_gfx_plate_gpu.mp4
+
+
+Exit code: 0
+
+================================================================================
+=== vertical_4_gfx_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --aspect-json-paths ",/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json," --aspect-ratio 9:16 --start-plate /opt/live-streams/content/poctest/start_plate9_16.mp4 --end-plate /opt/live-streams/content/poctest/end_plate9_16.mp4 --gfx-manifest /opt/live-streams/content/poctest/3508834_gfx.json --output-path /opt/live-streams/content/poctest/output/3508834_v_4_gfx_plate_gpu.mp4 --s3-output-key packagetest/3508834_v_4_gfx_plate_gpu.mp4
+
+Output:
+--- Stitch input details (ffprobe) ---
+Count: 6
+
+[0] start_plate9_16.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 3.78s
+
+[1] crop_1.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[2] crop_2.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[3] crop_3.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[4] crop_4.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[5] end_plate9_16.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 3.78s
+
+----------------------------------------
+
+{
+  "tatMs": 204908,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 172678,
+    "gfxMs": 14833,
+    "uploadMs": 770
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_v_4_gfx_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_v_4_gfx_plate_gpu.mp4"
+}
+TAT (stitch): 204908 ms | Upload to S3: 770 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_v_4_gfx_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_v_4_gfx_plate_gpu.mp4
+
+
+Exit code: 0
+
+================================================================================
+=== vertical_10_no_gfx_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --aspect-json-paths ",/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json," --aspect-ratio 9:16 --start-plate /opt/live-streams/content/poctest/start_plate9_16.mp4 --end-plate /opt/live-streams/content/poctest/end_plate9_16.mp4 --output-path /opt/live-streams/content/poctest/output/3508834_v_10_no_gfx_plate_gpu.mp4 --s3-output-key packagetest/3508834_v_10_no_gfx_plate_gpu.mp4
+
+Output:
+--- Stitch input details (ffprobe) ---
+Count: 12
+
+[0] start_plate9_16.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 3.78s
+
+[1] crop_1.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[2] crop_2.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[3] crop_3.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[4] crop_4.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[5] crop_5.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[6] crop_6.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[7] crop_7.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[8] crop_8.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[9] crop_9.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[10] crop_10.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[11] end_plate9_16.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 3.78s
+
+----------------------------------------
+
+{
+  "tatMs": 813925,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 770579,
+    "gfxMs": 0,
+    "uploadMs": 5228
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_v_10_no_gfx_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_v_10_no_gfx_plate_gpu.mp4"
+}
+TAT (stitch): 813925 ms | Upload to S3: 5228 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_v_10_no_gfx_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_v_10_no_gfx_plate_gpu.mp4
+
+
+Exit code: 0
+
+================================================================================
+=== vertical_10_no_gfx_no_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --aspect-json-paths "/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json" --aspect-ratio 9:16 --output-path /opt/live-streams/content/poctest/output/3508834_v_10_no_gfx_no_plate_gpu.mp4 --s3-output-key packagetest/3508834_v_10_no_gfx_no_plate_gpu.mp4
+
+Output:
+--- Stitch input details (ffprobe) ---
+Count: 10
+
+[0] crop_0.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[1] crop_1.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[2] crop_2.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[3] crop_3.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[4] crop_4.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[5] crop_5.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[6] crop_6.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[7] crop_7.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[8] crop_8.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[9] crop_9.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+----------------------------------------
+
+{
+  "tatMs": 676596,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 633267,
+    "gfxMs": 0,
+    "uploadMs": 5016
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_v_10_no_gfx_no_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_v_10_no_gfx_no_plate_gpu.mp4"
+}
+TAT (stitch): 676596 ms | Upload to S3: 5016 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_v_10_no_gfx_no_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_v_10_no_gfx_no_plate_gpu.mp4
+
+
+Exit code: 0
+
+================================================================================
+=== vertical_12_gfx_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --aspect-json-paths ",/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json," --aspect-ratio 9:16 --start-plate /opt/live-streams/content/poctest/start_plate9_16.mp4 --end-plate /opt/live-streams/content/poctest/end_plate9_16.mp4 --gfx-manifest /opt/live-streams/content/poctest/3508834_gfx.json --output-path /opt/live-streams/content/poctest/output/3508834_v_12_gfx_plate_gpu.mp4 --s3-output-key packagetest/3508834_v_12_gfx_plate_gpu.mp4
+
+Output:
+--- Stitch input details (ffprobe) ---
+Count: 14
+
+[0] start_plate9_16.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 3.78s
+
+[1] crop_1.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[2] crop_2.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[3] crop_3.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[4] crop_4.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[5] crop_5.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[6] crop_6.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[7] crop_7.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[8] crop_8.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[9] crop_9.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[10] crop_10.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[11] crop_11.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[12] crop_12.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[13] end_plate9_16.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 3.78s
+
+----------------------------------------
+
+{
+  "tatMs": 1151141,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 1058246,
+    "gfxMs": 40906,
+    "uploadMs": 1982
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_v_12_gfx_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_v_12_gfx_plate_gpu.mp4"
+}
+TAT (stitch): 1151141 ms | Upload to S3: 1982 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_v_12_gfx_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_v_12_gfx_plate_gpu.mp4
+
+
+Exit code: 0
+
+================================================================================
+=== vertical_12_no_gfx_no_plate ===
+================================================================================
+Command:
+node src/index.js process-local --gpu --input-paths "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4" --aspect-json-paths "/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json,/opt/live-streams/content/poctest/3508834_crop.json" --aspect-ratio 9:16 --output-path /opt/live-streams/content/poctest/output/3508834_v_12_no_gfx_no_plate_gpu.mp4 --s3-output-key packagetest/3508834_v_12_no_gfx_no_plate_gpu.mp4
+
+Output:
+--- Stitch input details (ffprobe) ---
+Count: 12
+
+[0] crop_0.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[1] crop_1.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[2] crop_2.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[3] crop_3.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[4] crop_4.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[5] crop_5.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[6] crop_6.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[7] crop_7.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[8] crop_8.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[9] crop_9.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[10] crop_10.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+[11] crop_11.mp4
+  video: 1080x1920 r_frame_rate: 50/1 time_base: 1/12800 pix_fmt: yuv420p codec: h264
+  audio: sample_rate: 48000 channels: 2 codec: aac time_base: 1/48000
+  duration: 25.45s
+
+----------------------------------------
+
+{
+  "tatMs": 949790,
+  "steps": {
+    "downloadMs": 0,
+    "ffmpegMs": 897812,
+    "gfxMs": 0,
+    "uploadMs": 6093
+  },
+  "outputPath": "/opt/live-streams/content/poctest/output/3508834_v_12_no_gfx_no_plate_gpu.mp4",
+  "s3Uri": "s3://si-davs-playgroundvideos/packagetest/3508834_v_12_no_gfx_no_plate_gpu.mp4"
+}
+TAT (stitch): 949790 ms | Upload to S3: 6093 ms
+Output on EFS: /opt/live-streams/content/poctest/output/3508834_v_12_no_gfx_no_plate_gpu.mp4
+Output on S3: s3://si-davs-playgroundvideos/packagetest/3508834_v_12_no_gfx_no_plate_gpu.mp4
+
+
+Exit code: 0

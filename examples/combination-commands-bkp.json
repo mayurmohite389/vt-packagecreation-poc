@@ -1,0 +1,232 @@
+[
+  {
+    "name": "horizontal_9_gfx_plate",
+    "args": [
+      "process-local",
+      "--input-paths",
+      "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4",
+      "--start-plate",
+      "/opt/live-streams/content/poctest/start_plate16_9.mp4",
+      "--end-plate",
+      "/opt/live-streams/content/poctest/end_plate16_9.mp4",
+      "--gfx-manifest",
+      "/opt/live-streams/content/poctest/3508834_gfx.json",
+      "--output-path",
+      "/opt/live-streams/content/poctest/output/3508834_h_9_gfx_plate.mp4",
+      "--s3-output-key",
+      "packagetest/3508834_h_9_gfx_plate.mp4"
+    ]
+  },
+  {
+    "name": "horizontal_4_gfx_plate",
+    "args": [
+      "process-local",
+      "--input-paths",
+      "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4",
+      "--start-plate",
+      "/opt/live-streams/content/poctest/start_plate16_9.mp4",
+      "--end-plate",
+      "/opt/live-streams/content/poctest/end_plate16_9.mp4",
+      "--gfx-manifest",
+      "/opt/live-streams/content/poctest/3508834_gfx.json",
+      "--output-path",
+      "/opt/live-streams/content/poctest/output/3508834_h_4_gfx_plate.mp4",
+      "--s3-output-key",
+      "packagetest/3508834_h_4_gfx_plate.mp4"
+    ]
+  },
+  {
+    "name": "horizontal_10_no_gfx_plate",
+    "args": [
+      "process-local",
+      "--input-paths",
+      "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4",
+      "--start-plate",
+      "/opt/live-streams/content/poctest/start_plate16_9.mp4",
+      "--end-plate",
+      "/opt/live-streams/content/poctest/end_plate16_9.mp4",
+      "--output-path",
+      "/opt/live-streams/content/poctest/output/3508834_h_10_no_gfx_plate.mp4",
+      "--s3-output-key",
+      "packagetest/3508834_h_10_no_gfx_plate.mp4"
+    ]
+  },
+  {
+    "name": "horizontal_10_no_gfx_no_plate",
+    "args": [
+      "process-local",
+      "--input-paths",
+      "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4",
+      "--output-path",
+      "/opt/live-streams/content/poctest/output/3508834_h_10_no_gfx_no_plate.mp4",
+      "--s3-output-key",
+      "packagetest/3508834_h_10_no_gfx_no_plate.mp4"
+    ]
+  },
+  {
+    "name": "horizontal_20_gfx_plate",
+    "args": [
+      "process-local",
+      "--input-paths",
+      "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4",
+      "--start-plate",
+      "/opt/live-streams/content/poctest/start_plate16_9.mp4",
+      "--end-plate",
+      "/opt/live-streams/content/poctest/end_plate16_9.mp4",
+      "--gfx-manifest",
+      "/opt/live-streams/content/poctest/3508834_gfx.json",
+      "--output-path",
+      "/opt/live-streams/content/poctest/output/3508834_h_20_gfx_plate.mp4",
+      "--s3-output-key",
+      "packagetest/3508834_h_20_gfx_plate.mp4"
+    ]
+  },
+  {
+    "name": "horizontal_30_gfx_plate",
+    "args": [
+      "process-local",
+      "--input-paths",
+      "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4",
+      "--start-plate",
+      "/opt/live-streams/content/poctest/start_plate16_9.mp4",
+      "--end-plate",
+      "/opt/live-streams/content/poctest/end_plate16_9.mp4",
+      "--gfx-manifest",
+      "/opt/live-streams/content/poctest/3508834_gfx.json",
+      "--output-path",
+      "/opt/live-streams/content/poctest/output/3508834_h_30_gfx_plate.mp4",
+      "--s3-output-key",
+      "packagetest/3508834_h_30_gfx_plate.mp4"
+    ]
+  },
+  {
+    "name": "horizontal_30_no_gfx_no_plate",
+    "args": [
+      "process-local",
+      "--input-paths",
+      "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4",
+      "--output-path",
+      "/opt/live-streams/content/poctest/output/3508834_h_30_no_gfx_no_plate.mp4",
+      "--s3-output-key",
+      "packagetest/3508834_h_30_no_gfx_no_plate.mp4"
+    ]
+  },
+  {
+    "name": "vertical_9_gfx_plate",
+    "args": [
+      "process-local",
+      "--input-paths",
+      "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4",
+      "--aspect-json-paths",
+      "/opt/live-streams/content/poctest/3508834_crop.json",
+      "--aspect-ratio",
+      "9:16",
+      "--start-plate",
+      "/opt/live-streams/content/poctest/start_plate9_16.mp4",
+      "--end-plate",
+      "/opt/live-streams/content/poctest/end_plate9_16.mp4",
+      "--gfx-manifest",
+      "/opt/live-streams/content/poctest/3508834_gfx.json",
+      "--output-path",
+      "/opt/live-streams/content/poctest/output/3508834_v_9_gfx_plate.mp4",
+      "--s3-output-key",
+      "packagetest/3508834_v_9_gfx_plate.mp4"
+    ]
+  },
+  {
+    "name": "vertical_4_gfx_plate",
+    "args": [
+      "process-local",
+      "--input-paths",
+      "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4",
+      "--aspect-json-paths",
+      "/opt/live-streams/content/poctest/3508834_crop.json",
+      "--aspect-ratio",
+      "9:16",
+      "--start-plate",
+      "/opt/live-streams/content/poctest/start_plate9_16.mp4",
+      "--end-plate",
+      "/opt/live-streams/content/poctest/end_plate9_16.mp4",
+      "--gfx-manifest",
+      "/opt/live-streams/content/poctest/3508834_gfx.json",
+      "--output-path",
+      "/opt/live-streams/content/poctest/output/3508834_v_4_gfx_plate.mp4",
+      "--s3-output-key",
+      "packagetest/3508834_v_4_gfx_plate.mp4"
+    ]
+  },
+  {
+    "name": "vertical_10_no_gfx_plate",
+    "args": [
+      "process-local",
+      "--input-paths",
+      "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4",
+      "--aspect-json-paths",
+      "/opt/live-streams/content/poctest/3508834_crop.json",
+      "--aspect-ratio",
+      "9:16",
+      "--start-plate",
+      "/opt/live-streams/content/poctest/start_plate9_16.mp4",
+      "--end-plate",
+      "/opt/live-streams/content/poctest/end_plate9_16.mp4",
+      "--output-path",
+      "/opt/live-streams/content/poctest/output/3508834_v_10_no_gfx_plate.mp4",
+      "--s3-output-key",
+      "packagetest/3508834_v_10_no_gfx_plate.mp4"
+    ]
+  },
+  {
+    "name": "vertical_10_no_gfx_no_plate",
+    "args": [
+      "process-local",
+      "--input-paths",
+      "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4",
+      "--aspect-json-paths",
+      "/opt/live-streams/content/poctest/3508834_crop.json",
+      "--aspect-ratio",
+      "9:16",
+      "--output-path",
+      "/opt/live-streams/content/poctest/output/3508834_v_10_no_gfx_no_plate.mp4",
+      "--s3-output-key",
+      "packagetest/3508834_v_10_no_gfx_no_plate.mp4"
+    ]
+  },
+  {
+    "name": "vertical_12_gfx_plate",
+    "args": [
+      "process-local",
+      "--input-paths",
+      "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4",
+      "--aspect-json-paths",
+      "/opt/live-streams/content/poctest/3508834_crop.json",
+      "--aspect-ratio",
+      "9:16",
+      "--start-plate",
+      "/opt/live-streams/content/poctest/start_plate9_16.mp4",
+      "--end-plate",
+      "/opt/live-streams/content/poctest/end_plate9_16.mp4",
+      "--gfx-manifest",
+      "/opt/live-streams/content/poctest/3508834_gfx.json",
+      "--output-path",
+      "/opt/live-streams/content/poctest/output/3508834_v_12_gfx_plate.mp4",
+      "--s3-output-key",
+      "packagetest/3508834_v_12_gfx_plate.mp4"
+    ]
+  },
+  {
+    "name": "vertical_12_no_gfx_no_plate",
+    "args": [
+      "process-local",
+      "--input-paths",
+      "/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4,/opt/live-streams/content/poctest/3508834.mp4",
+      "--aspect-json-paths",
+      "/opt/live-streams/content/poctest/3508834_crop.json",
+      "--aspect-ratio",
+      "9:16",
+      "--output-path",
+      "/opt/live-streams/content/poctest/output/3508834_v_12_no_gfx_no_plate.mp4",
+      "--s3-output-key",
+      "packagetest/3508834_v_12_no_gfx_no_plate.mp4"
+    ]
+  }
+]
